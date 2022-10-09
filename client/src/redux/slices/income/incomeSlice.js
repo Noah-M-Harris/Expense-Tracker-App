@@ -25,7 +25,7 @@ export const createIncomeAction = createAsyncThunk('income/create', async (paylo
     }
     try {
         // Make HTTP call
-        const {data} = await axios.post(`income/`, payload, config) /* incomeBaseURL + '/', payload */
+        const {data} = await axios.post(`/v1/income/`, payload, config) /* incomeBaseURL + '/', payload */
         
         dispatch(resetIncomeCreated())
         
@@ -55,7 +55,7 @@ export const fetchAllIncome = createAsyncThunk('income/fetch', async (payload, {
     }
     try {
         // Make HTTP call
-        const {data} = await axios.get(`income/?page=${payload}`, config) /* incomeBaseURL + `/?page=${payload}` */
+        const {data} = await axios.get(`/v1/income/?page=${payload}`, config) /* incomeBaseURL + `/?page=${payload}` */
         return data
     } catch (error) {
         if(!error?.response) {
@@ -83,7 +83,7 @@ export const updateIncomeAction = createAsyncThunk('income/update', async (paylo
     }
     try {
         // Make HTTP call
-        const {data} = await axios.put(`income/${payload?.id}`, payload, config) /* incomeBaseURL + `/${payload?.id}` */
+        const {data} = await axios.put(`/v1/income/${payload?.id}`, payload, config) /* incomeBaseURL + `/${payload?.id}` */
 
         dispatch(resetIncomeUpdate())
         

@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, createAction } from '@reduxjs/toolkit'
 import axios from 'axios'
-import {usersBaseURL} from '../../../utils/baseURL'
+//import {usersBaseURL} from '../../../utils/baseURL'
 
 // profile
 
@@ -22,7 +22,7 @@ export const loginUserAction = createAsyncThunk('user/login', async (payload, {r
     }
     try {
         // Make HTTP call: Data contains user details
-        const {data} = await axios.post(`users/login`, payload, config)  /* `${usersBaseURL}/login` */
+        const {data} = await axios.post(`/v1/users/login`, payload, config)  /* `${usersBaseURL}/login` */
 
         // save user into localStorage
         localStorage.setItem('userInfo', JSON.stringify(data))
@@ -65,7 +65,7 @@ export const registerUserAction = createAsyncThunk('user/register', async (paylo
     }
     try {
         // Make HTTP call
-        const {data} = await axios.post(`users/`, payload, config)
+        const {data} = await axios.post(`/v1/users/`, payload, config)
         dispatch(resetUserRegister())
         return data
     } catch (error) {
@@ -92,7 +92,7 @@ export const userProfileAction = createAsyncThunk('user/profile', async (payload
     }
     try {
         // Make HTTP call: Data contains user details
-        const {data} = await axios.get(`users/profile`, config) /* usersBaseURL + '/profile' */
+        const {data} = await axios.get(`/v1/users/profile`, config) /* usersBaseURL + '/profile' */
 
         // save user into localStorage
         localStorage.setItem('userInfo', JSON.stringify(data))
@@ -122,7 +122,7 @@ export const updateProfileAction = createAsyncThunk('user/update', async (payloa
     }
     try {
         // Make HTTP call: Data contains user details
-        const {data} = await axios.put(`users/update`, 
+        const {data} = await axios.put(`/v1/users/update`, 
         {
             firstName: payload?.firstName, 
             lastName: payload?.lastName, 

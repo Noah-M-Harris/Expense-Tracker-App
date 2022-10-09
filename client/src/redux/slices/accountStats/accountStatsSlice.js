@@ -20,7 +20,7 @@ export const fetchAccountStats = createAsyncThunk('account/fetch', async (payloa
     }
     try {
         // Make HTTP call
-        const {data} = await axios.get(`account/account-statistics`, config) /* statsBaseURL + '/account-statistics' */
+        const {data} = await axios.get(`/v1/account/account-statistics`, config) /* statsBaseURL + '/account-statistics' */
 
         return data
         
