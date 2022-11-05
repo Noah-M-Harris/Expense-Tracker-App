@@ -24,7 +24,7 @@ const Home = () => {
                   </p>
                   <div className="d-flex flex-wrap">
                     <Link
-                      to="/profile"
+                      to="/register"
                       className="btn btn-primary me-2 mb-2 mb-sm-0"
                     >
                       Track your performance
@@ -34,6 +34,9 @@ const Home = () => {
                 <h1 className="text-danger">Create Your Acoount Now !</h1>
 {/*                 <p>User name: admin@gmail.com</p>
                 <p>password: 12345</p> */}
+                {/* <Link to="/register" className="btn btn-primary">
+                Sign Up
+              </Link> */}
                 <div className="row align-items-center pt-5">
                   <div className="col-6 col-md-4 col-lg-3 col-xl-2 text-center mb-5">
                     <img
